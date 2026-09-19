@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "linked_audio_id",
+    "split",
+    "behavior_group",
+    "query_reference",
+    "expected_action",
+    "required_facts",
+    "forbidden_claims",
+    "gold_passage_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "linked_audio_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "split": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "dev",
+        "test"
+      ]
+    },
+    "behavior_group": {
+      "type": "string",
+      "minLength": 1
+    },
+    "query_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_action": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "answer",
+        "clarify",
+        "abstain"
+      ]
+    },
+    "required_facts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gold_passage_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "slot_id",
+    "slot_type",
+    "reference_value",
+    "accepted_values",
+    "critical"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slot_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reference_value": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accepted_values": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "critical": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

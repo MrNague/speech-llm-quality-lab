@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "group_id",
+    "speaker_id",
+    "audio_path",
+    "audio_sha256",
+    "duration_s",
+    "sample_rate_hz",
+    "reference_text",
+    "primary_category",
+    "tags",
+    "split",
+    "review_status",
+    "source",
+    "publication_allowed"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "group_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "speaker_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audio_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reference_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "audio_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "duration_s": {
+      "type": "number",
+      "minimum": 3,
+      "maximum": 20
+    },
+    "sample_rate_hz": {
+      "const": 16000,
+      "type": "integer"
+    },
+    "primary_category": {
+      "enum": [
+        "numbers_times",
+        "homophones",
+        "elisions_boundaries",
+        "negation",
+        "technical_ids",
+        "colloquial_variants"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "split": {
+      "enum": [
+        "dev",
+        "test"
+      ]
+    },
+    "review_status": {
+      "enum": [
+        "pending",
+        "approved",
+        "unclear"
+      ]
+    },
+    "publication_allowed": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,13 @@
+attrs==26.1.0
+iniconfig==2.3.0
+jsonschema==4.23.0
+jsonschema-specifications==2025.9.1
+packaging==26.3
+pluggy==1.6.0
+pytest==8.3.5
+referencing==0.37.0
+rpds-py==2026.6.3
+setuptools==75.8.0
+typing_extensions==4.16.0
+wheel==0.45.1
+colorama==0.4.6; sys_platform == "win32"

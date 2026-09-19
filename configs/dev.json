@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "data_root": "../tests/fixtures/generated",
+  "manifest": "audio_manifest.jsonl",
+  "output": "../artifacts/validation.json",
+  "external_enabled": false,
+  "budget_eur": 0
+}

@@ -1,0 +1,17 @@
+{
+  "test_id": "T01",
+  "timestamp": "2026-09-19T04:38:08.188350+00:00",
+  "commit": "020458ef43573e20532eca73eb8db8c5840428cb",
+  "environment": "Linux, Python 3.12.14; fresh venv from requirements-dev.lock",
+  "input_version": "schema 1.0; ten synthetic fixtures",
+  "expected": "All T01 errors detected by case; valid CLI exit 0, invalid exit 2; no inference",
+  "observed": "31 pytest tests passed; installed package validated 10 fixtures outside source directory; approved=0",
+  "status": "passed",
+  "evidence_path": "docs/evidence/AP1-validation.json",
+  "limitations": [
+    "E01 on Pascal Windows reference device pending",
+    "Python 3.11 and Windows matrix not executed here",
+    "Tests T02-T18 not accepted",
+    "Windows-only colorama pin not exercised on Linux"
+  ]
+}

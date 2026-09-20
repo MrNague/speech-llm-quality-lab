@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "data_root": "../data/local/pilot",
+  "manifest": "audio_manifest.jsonl",
+  "output": "../artifacts/pilot-validation.json",
+  "runs_root": "../runs",
+  "model_path": "../models/whisper-tiny",
+  "model_id": "Systran/faster-whisper-tiny",
+  "cpu_threads": 4,
+  "beam_size": 1,
+  "timeout_s": 120,
+  "load_timeout_s": 180,
+  "external_enabled": false,
+  "budget_eur": 0
+}

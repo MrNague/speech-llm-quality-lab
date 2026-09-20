@@ -1,0 +1,212 @@
+[
+  {
+    "case_id": "PILOT001",
+    "group_id": "PILOT_GROUP001",
+    "primary_category": "numbers_times",
+    "split": "dev",
+    "script_text": "Le service d’assistance ouvre à huit heures et ferme à dix-huit heures."
+  },
+  {
+    "case_id": "PILOT002",
+    "group_id": "PILOT_GROUP002",
+    "primary_category": "numbers_times",
+    "split": "dev",
+    "script_text": "J’ai attendu vingt et une minutes avant de recevoir le code de connexion."
+  },
+  {
+    "case_id": "PILOT003",
+    "group_id": "PILOT_GROUP003",
+    "primary_category": "numbers_times",
+    "split": "dev",
+    "script_text": "La réunion commence à neuf heures trente, mais mon accès est toujours bloqué."
+  },
+  {
+    "case_id": "PILOT004",
+    "group_id": "PILOT_GROUP004",
+    "primary_category": "numbers_times",
+    "split": "dev",
+    "script_text": "Le message annonce une interruption de quinze minutes à partir de midi."
+  },
+  {
+    "case_id": "PILOT005",
+    "group_id": "PILOT_GROUP005",
+    "primary_category": "numbers_times",
+    "split": "dev",
+    "script_text": "Il reste quatre-vingt-dix fichiers à copier sur le disque de sauvegarde."
+  },
+  {
+    "case_id": "PILOT006",
+    "group_id": "PILOT_GROUP006",
+    "primary_category": "homophones",
+    "split": "dev",
+    "script_text": "Mon compte est bloqué, alors que le compte rendu reste accessible."
+  },
+  {
+    "case_id": "PILOT007",
+    "group_id": "PILOT_GROUP007",
+    "primary_category": "homophones",
+    "split": "dev",
+    "script_text": "Cette fois, la connexion fonctionne, mais je dois encore vérifier mes droits."
+  },
+  {
+    "case_id": "PILOT008",
+    "group_id": "PILOT_GROUP008",
+    "primary_category": "homophones",
+    "split": "dev",
+    "script_text": "Sans le code reçu par courriel, je ne peux pas ouvrir cette session."
+  },
+  {
+    "case_id": "PILOT009",
+    "group_id": "PILOT_GROUP009",
+    "primary_category": "homophones",
+    "split": "dev",
+    "script_text": "Je vois que la voix de mon collègue disparaît pendant la réunion."
+  },
+  {
+    "case_id": "PILOT010",
+    "group_id": "PILOT_GROUP010",
+    "primary_category": "homophones",
+    "split": "dev",
+    "script_text": "Le port réseau fonctionne, mais je ne peux pas ouvrir le portail interne."
+  },
+  {
+    "case_id": "PILOT011",
+    "group_id": "PILOT_GROUP011",
+    "primary_category": "elisions_boundaries",
+    "split": "dev",
+    "script_text": "L’application m’indique qu’il n’y a plus d’espace pour enregistrer le fichier."
+  },
+  {
+    "case_id": "PILOT012",
+    "group_id": "PILOT_GROUP012",
+    "primary_category": "elisions_boundaries",
+    "split": "dev",
+    "script_text": "Est-ce qu’on doit redémarrer l’ordinateur après l’installation de cette mise à jour ?"
+  },
+  {
+    "case_id": "PILOT013",
+    "group_id": "PILOT_GROUP013",
+    "primary_category": "elisions_boundaries",
+    "split": "dev",
+    "script_text": "J’aimerais qu’un technicien m’explique pourquoi l’écran s’éteint tout seul."
+  },
+  {
+    "case_id": "PILOT014",
+    "group_id": "PILOT_GROUP014",
+    "primary_category": "elisions_boundaries",
+    "split": "dev",
+    "script_text": "Lorsqu’elle s’ouvre, l’application affiche immédiatement un message d’erreur."
+  },
+  {
+    "case_id": "PILOT015",
+    "group_id": "PILOT_GROUP015",
+    "primary_category": "elisions_boundaries",
+    "split": "dev",
+    "script_text": "D’habitude, j’accède à l’espace partagé dès que j’allume mon ordinateur."
+  },
+  {
+    "case_id": "PILOT016",
+    "group_id": "PILOT_GROUP016",
+    "primary_category": "negation",
+    "split": "dev",
+    "script_text": "Je ne souhaite pas supprimer mon compte, seulement changer mon mot de passe."
+  },
+  {
+    "case_id": "PILOT017",
+    "group_id": "PILOT_GROUP017",
+    "primary_category": "negation",
+    "split": "dev",
+    "script_text": "L’imprimante ne manque pas de papier, mais elle ne répond plus."
+  },
+  {
+    "case_id": "PILOT018",
+    "group_id": "PILOT_GROUP018",
+    "primary_category": "negation",
+    "split": "dev",
+    "script_text": "Je n’ai jamais reçu le courriel permettant de confirmer mon inscription."
+  },
+  {
+    "case_id": "PILOT019",
+    "group_id": "PILOT_GROUP019",
+    "primary_category": "negation",
+    "split": "dev",
+    "script_text": "Le fichier n’est pas perdu : il est enregistré dans un autre dossier."
+  },
+  {
+    "case_id": "PILOT020",
+    "group_id": "PILOT_GROUP020",
+    "primary_category": "negation",
+    "split": "dev",
+    "script_text": "Ne redémarrez pas le serveur pendant que la sauvegarde est en cours."
+  },
+  {
+    "case_id": "PILOT021",
+    "group_id": "PILOT_GROUP021",
+    "primary_category": "technical_ids",
+    "split": "dev",
+    "script_text": "Le ticket porte la référence A B douze, et concerne un problème de connexion."
+  },
+  {
+    "case_id": "PILOT022",
+    "group_id": "PILOT_GROUP022",
+    "primary_category": "technical_ids",
+    "split": "dev",
+    "script_text": "Le client VPN refuse la connexion depuis la dernière mise à jour."
+  },
+  {
+    "case_id": "PILOT023",
+    "group_id": "PILOT_GROUP023",
+    "primary_category": "technical_ids",
+    "split": "dev",
+    "script_text": "Le navigateur affiche une erreur HTTP quatre cent trois sur le portail."
+  },
+  {
+    "case_id": "PILOT024",
+    "group_id": "PILOT_GROUP024",
+    "primary_category": "technical_ids",
+    "split": "dev",
+    "script_text": "Le périphérique USB est reconnu, mais son dossier reste inaccessible."
+  },
+  {
+    "case_id": "PILOT025",
+    "group_id": "PILOT_GROUP025",
+    "primary_category": "technical_ids",
+    "split": "dev",
+    "script_text": "Le réseau Wi-Fi fonctionne sur mon téléphone, mais pas sur cet ordinateur."
+  },
+  {
+    "case_id": "PILOT026",
+    "group_id": "PILOT_GROUP026",
+    "primary_category": "colloquial_variants",
+    "split": "dev",
+    "script_text": "Ben, ça marchait ce matin, et maintenant impossible d’ouvrir le dossier partagé."
+  },
+  {
+    "case_id": "PILOT027",
+    "group_id": "PILOT_GROUP027",
+    "primary_category": "colloquial_variants",
+    "split": "dev",
+    "script_text": "J’arrive pas à me connecter, même après avoir changé mon mot de passe."
+  },
+  {
+    "case_id": "PILOT028",
+    "group_id": "PILOT_GROUP028",
+    "primary_category": "colloquial_variants",
+    "split": "dev",
+    "script_text": "Euh, j’ai cliqué sur le bouton, mais ça charge depuis tout à l’heure."
+  },
+  {
+    "case_id": "PILOT029",
+    "group_id": "PILOT_GROUP029",
+    "primary_category": "colloquial_variants",
+    "split": "dev",
+    "script_text": "Y a plus de son dans la réunion, pourtant mon casque est bien branché."
+  },
+  {
+    "case_id": "PILOT030",
+    "group_id": "PILOT_GROUP030",
+    "primary_category": "colloquial_variants",
+    "split": "dev",
+    "script_text": "Bon, je fais comment pour retrouver le document que je viens de fermer ?"
+  }
+]

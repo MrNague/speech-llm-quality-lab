@@ -25,3 +25,7 @@ Selbstbewertung als Standard; Einschränkung offenlegen. Externer Reviewer optio
 ## Technische Ausgestaltung AP1
 
 JSON Schema Draft 2020-12, schema_version 1.0. Relative POSIX-Pfade auch unter Windows; Backslashes werden als nicht portabel abgelehnt. Kernreferenzen müssen nicht leer sein. Metadaten-Dauer muss innerhalb eines Samples zur WAV-Dauer passen. Diese Ausgestaltung verändert keine MUSS-Anforderung. Zusätzliche Metadaten erfordern eine dokumentierte Schemaweiterentwicklung.
+
+## E02 – AP2 Pilotkandidat
+
+Systran/faster-whisper-tiny (mehrsprachig), faster-whisper 1.2.1, CPU int8, vier Threads, beam_size 1. Der Download löst die Modellrevision auf und speichert den unveränderlichen Commit. Kandidat, keine endgültige Auswahl: reale N5100-Inferenz und Lizenznachweis des heruntergeladenen Standes sind vor Benchmarkfreigabe zu prüfen. Die Downloadquelle nennt MIT. Quellen: https://huggingface.co/Systran/faster-whisper-tiny und https://github.com/SYSTRAN/faster-whisper . Keine Leistungsbehauptung.

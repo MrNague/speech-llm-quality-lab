@@ -9,3 +9,7 @@ Die zehn Fixtures sind synthetische Softwaredaten mit `review_status=pending` un
 T01 prüft Typen, Pflichtfelder, fehlende Audiodateien, doppelte IDs, SHA-256, WAV PCM16 mono 16 kHz, Dauer 3–20 s, leere Referenzen und Pfade einschließlich externer Symlinks. Erste Gruppen-, Hash- und Textprüfungen entdecken splitübergreifende Duplikate. Die Textprüfung vereinheitlicht derzeit NFC, Kleinschreibung und Leerraum; vollständige normalisierte Duplikatkontrolle und manuelle Vorlagenprüfung folgen in AP3. T02 ist damit noch nicht erfüllt.
 
 Weitere Dateischemata sind strukturelle Grundlagen. Offene fachliche Prüfungen: Slotäquivalenzen, Goldbelege und Begründungen bei fehlenden Goldbelegen, Verknüpfungen der LLM-/Audiofälle, Mengen/Verteilungen, UTC- und Run-Invarianten, Rubrikrevisionen, Provenienz- und Freeze-Nachweise. Sie müssen vor Nutzung der entsprechenden Pipeline umgesetzt sein.
+
+## Ergänzung AP2
+
+Additive optionale Messfelder in den JSON-Schemata: rss_bytes in predictions; model_files_hash, planned, scope, config, model_load_s und load_error in run. Pflichtfelder bleiben unverändert. Diese Felder dokumentieren ausschließlich den DEV-Pilot. reviews.json ist ein lokales append-only Review-Protokoll auf Anwendungsebene; das Manifest ist ein daraus erzeugter Arbeitsstand, kein eingefrorener Datensatz. Prozessübergreifendes paralleles Bearbeiten ist im Pilot nicht unterstützt.

@@ -2,7 +2,11 @@
 
 Lokales Portfolio-Projekt zur französischen Sprachdatenprüfung und späteren ASR-/LLM-Evaluation. Verbindlich sind die unverändert abgelegten PDFs in `docs/specifications/`.
 
-## Stand: AP1
+## Stand: AP2 in Arbeit
+
+Neu: [AP2-Anleitung](docs/AP2_START.md), [Annotation Guide](docs/ANNOTATION_GUIDE.md), [30 Aufnahmefälle](docs/PILOT_RECORDING_SHEET.md), WER/CER, lokaler ASR-Pilot und HTML-Bericht. Echte Aufnahmen und Hardware-Inferenznachweis stehen aus.
+
+## Abgeschlossener Sockel: AP1
 
 Implementiert: Python-Paket, sieben JSON-Schemata, Audio-Manifestvalidierung, zehn reproduzierbare künstliche Fixtures, CLI, Tests und Hardwarediagnose. Die sechs weiteren Dateischemata definieren zunächst Pflichtfelder und Grundtypen; ihre fachlichen Beziehungen und vollständigen Invarianten werden in AP3–AP5 implementiert. Die Validierung prüft aktuell das Audio-Manifest, nicht den vollständigen 120/60-Fälle-Bestand.
 
@@ -25,7 +29,7 @@ py -3.11 -m venv .venv
 Linux/macOS: `python3.11 -m venv .venv`, danach dieselben Befehle mit `.venv/bin/python`.
 Installation kann Netz benötigen. Tests, Fixture-Erstellung, Validierung und Hardwareinventar führen keine externen Anfragen aus. Sie benötigen keine Modelle oder Schlüssel.
 
-`validate`: Exit 0 bei gültigem Manifest, sonst 2. Bericht: `artifacts/validation.json`. Mehrere Fehler werden gemeinsam mit Fall-ID, Zeile, Feld und Fehlercode gemeldet; unlesbare Datensätze haben gegebenenfalls keine Fall-ID. Ungültige Eingaben lösen keine Inferenz aus. `run`, `evaluate`, `compare`, `report` folgen in späteren APs und sind noch nicht verfügbar.
+`validate`: Exit 0 bei gültigem Manifest, sonst 2. Bericht: `artifacts/validation.json`. Mehrere Fehler werden gemeinsam mit Fall-ID, Zeile, Feld und Fehlercode gemeldet; unlesbare Datensätze haben gegebenenfalls keine Fall-ID. Ungültige Eingaben lösen keine Inferenz aus. `run --config configs/pilot.json` ist als DEV-ASR-Pilot verfügbar. `evaluate`, `compare`, `report` als separate CLI-Befehle folgen später.
 
 ## Aufbau
 

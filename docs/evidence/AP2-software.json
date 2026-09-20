@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-09-20T08:38:43.149616+00:00",
+  "base_commit": "aafba190c5f7abfc41f19c222fd4f3ac41a9bb49",
+  "scope": "AP2 software only; no real audio or model inference claimed",
+  "tests": {
+    "passed": 46,
+    "environment": "fresh Linux Python 3.12 virtual environment",
+    "coverage": [
+      "T04 WER corpus weighting and CER",
+      "T05 normalization subset; slots pending",
+      "local-only adapter contract with fake model",
+      "spawn timeout termination",
+      "atomic predictions and run schema",
+      "deterministic report and HTML escaping",
+      "30 balanced DEV recording prompts"
+    ]
+  },
+  "dependencies": {
+    "native_imports": "faster-whisper 1.2.1, CTranslate2 4.6.0, PyAV 16.0.1",
+    "windows_python311": "binary package resolution succeeded; not Windows execution; OS-specific optional markers need reference-device verification"
+  },
+  "ap2_status": "in_progress",
+  "remaining": [
+    "30 approved real recordings",
+    "microphone and real ASR on E01 device",
+    "real reproducible pilot report"
+  ],
+  "source_hashes": {
+    "src/quality_lab/evaluation/asr_metrics.py": "f29f7533ea3ef10cbc03a35553acb8cd939899540032d79ce5316fe4cf575e2a",
+    "src/quality_lab/runner/pilot.py": "91e79cef8eb7e4cdbefd0d9ae1d327c2f77e32675c05d92d20fad43f1450cc24",
+    "src/quality_lab/asr/faster_whisper_adapter.py": "e00295ee1765d0bee759e25201ad01ce4345a356e632f2ab729b6d2e03d561cd"
+  }
+}

@@ -1,0 +1,11 @@
+# Optional pilot dependencies; no model weights included.
+faster-whisper==1.2.1
+sounddevice==0.5.3
+psutil==7.0.0
+# Explicit Python 3.11-compatible backend profile for the initial CPU pilot.
+numpy==2.2.6
+ctranslate2==4.6.0
+onnxruntime==1.23.2
+huggingface-hub==0.36.0
+tokenizers==0.22.1
+av==16.0.1

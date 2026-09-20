@@ -86,6 +86,32 @@
     "cost_status": {
       "type": "string",
       "minLength": 1
+    },
+    "model_files_hash": {
+      "type": "string"
+    },
+    "planned": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scope": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object"
+    },
+    "model_load_s": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "load_error": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
   "additionalProperties": false

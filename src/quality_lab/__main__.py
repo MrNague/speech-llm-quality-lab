@@ -12,8 +12,14 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     validate = sub.add_parser('validate')
     validate.add_argument('--config', required=True, type=Path)
+    run = sub.add_parser('run')
+    run.add_argument('--config', required=True, type=Path)
+    run.add_argument('--limit', type=int)
     args = parser.parse_args()
     try:
+        if args.command == 'run':
+            from .runner.pilot import run_pilot
+            return run_pilot(args.config, args.limit)
         config = json.loads(args.config.read_text(encoding='utf-8'))
         if not isinstance(config, dict) or config.get('schema_version') != '1.0':
             raise ValueError('Unsupported config version')
@@ -32,7 +38,7 @@ def main():
             if name and os.path.exists(name): os.unlink(name)
         print(json.dumps(result,ensure_ascii=False,allow_nan=False))
         return 0 if result['valid'] else 2
-    except (OSError,ValueError,KeyError,TypeError):
+    except (OSError,ValueError,KeyError,TypeError,ImportError):
         print(json.dumps({'valid':False,'errors':[{'code':'configuration_or_io_error'}]}))
         return 2
 

@@ -47,4 +47,4 @@ E01 ist dokumentiert. Nächster Schritt AP2: Annotation Guide, 30 echte Aufnahme
 
 ## Herkunft und Veröffentlichung
 
-Eigenständiges Projekt von Pascal Cabrel Nague, kein Auftrag von KENBUN. PDFs bleiben unverändert. Keine öffentliche Freigabe der Stimme oder des Repositories impliziert. Softwarelizenz vor Veröffentlichung entscheiden; Modelle benötigen eigene Lizenzeinträge.
+Eigenständiges Projekt von Pascal Cabrel Nague. Keine öffentliche Freigabe der Stimme oder des Repositories impliziert. Softwarelizenz vor Veröffentlichung entscheiden; Modelle benötigen eigene Lizenzeinträge.

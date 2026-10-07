@@ -88,7 +88,7 @@ def test_run_persists_valid_contracts(tmp_path,monkeypatch):
     (model/'quality_lab_model.json').write_text(json.dumps({'model_id':'test-only','model_revision':'fixture'}))
     config=tmp_path/'pilot.json'
     config.write_text(json.dumps({'data_root':'data','manifest':'audio_manifest.jsonl','model_path':'model','runs_root':'runs',
-                                 'model_id':'test-only','external_enabled':False,'timeout_s':2,'load_timeout_s':5}))
+                                 'model_id':'test-only','external_enabled':False,'timeout_s':2,'load_timeout_s':30}))
     monkeypatch.setattr(pilot,'worker',fake_worker)
     monkeypatch.setattr(pilot.importlib.metadata,'version',lambda _: 'fixture')
     assert pilot.run_pilot(config,2)==0

@@ -1,7 +1,7 @@
 # M3 — Local ASR Validation Evidence
 
 Date: 2026-10-12
-Operator: Pascal Cabrel Nague
+Operator: Pascal Cabrel Nague (MrNague), Michel Ange Nji Le (Michel) and Loic Kepguie (Akepson)
 Status: Partial validation — M3 acceptance pending
 
 ## Environment
@@ -43,6 +43,21 @@ Status: Partial validation — M3 acceptance pending
 - Coverage: one unique recording, processed twice.
 - Independent reference-review evidence: pending.
 - These runs are execution checks, not an accepted corpus benchmark.
+
+
+## M3 item 1 — Configuration and provenance verification
+
+- Local ASR configuration and model revision are documented above.
+- Installed dependencies match requirements-asr.lock for Linux.
+- setuptools 75.8.0 and wheel 0.45.1 were explicitly verified.
+- Windows-only dependencies are correctly excluded on Linux.
+- The full installed dependency snapshot is recorded in
+  [M3-wsl-dependencies.txt](M3-wsl-dependencies.txt).
+- Model loading and real transcription succeeded using CPU/INT8.
+
+Status: Evidence complete; awaiting peer review.
+This status applies only to item 1, not full M3 acceptance.
+
 
 ## Measured results
 

@@ -31,3 +31,71 @@ def test_cer_denominators():
     assert corpus_metrics([('a b','ab')],'raw')['cer']==1/3
     assert corpus_metrics([('a b','ab')])['cer']==0
     assert corpus_metrics([('été','été')])['wer']==0
+
+@pytest.mark.parametrize("mode", ["raw", "normalized"])
+@pytest.mark.parametrize(
+    "reference,prediction,expected",
+    [
+        ("le chat dort", "le chien dort", (1, 0, 0)),
+        ("le chat dort", "le dort", (0, 1, 0)),
+        ("le chat dort", "le chat dort ici", (0, 0, 1)),
+    ],
+)
+def test_word_edit_counts(mode, reference, prediction, expected):
+    result = corpus_metrics([(reference, prediction)], mode=mode)
+    counts = result["words"]
+
+    assert (
+        counts["substitutions"],
+        counts["deletions"],
+        counts["insertions"],
+    ) == expected
+    assert counts["reference_units"] == 3
+    assert result["wer"] == pytest.approx(1 / 3)
+
+
+@pytest.mark.parametrize("mode", ["raw", "normalized"])
+@pytest.mark.parametrize(
+    "prediction,expected",
+    [
+        ("chut", (1, 0, 0)),
+        ("cha", (0, 1, 0)),
+        ("chats", (0, 0, 1)),
+    ],
+)
+def test_character_edit_counts(mode, prediction, expected):
+    result = corpus_metrics([("chat", prediction)], mode=mode)
+    counts = result["characters"]
+
+    assert (
+        counts["substitutions"],
+        counts["deletions"],
+        counts["insertions"],
+    ) == expected
+    assert counts["reference_units"] == 4
+    assert result["cer"] == pytest.approx(0.25)
+
+
+@pytest.mark.parametrize("mode", ["raw", "normalized"])
+def test_empty_prediction_word_and_character_rates(mode):
+    result = corpus_metrics([("le petit chat dort", "")], mode=mode)
+
+    assert result["wer"] == 1.0
+    assert result["cer"] == 1.0
+    for unit in ("words", "characters"):
+        counts = result[unit]
+        assert counts["substitutions"] == 0
+        assert counts["insertions"] == 0
+        assert counts["deletions"] == counts["reference_units"]
+
+
+def test_capitalization_raw_and_normalized():
+    pairs = [("Bonjour", "bonjour")]
+
+    raw = corpus_metrics(pairs, mode="raw")
+    assert raw["wer"] == 1.0
+    assert raw["cer"] == pytest.approx(1 / 7)
+
+    normalized = corpus_metrics(pairs, mode="normalized")
+    assert normalized["wer"] == 0.0
+    assert normalized["cer"] == 0.0

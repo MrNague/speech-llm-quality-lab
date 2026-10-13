@@ -15,7 +15,7 @@ def test_empty_hypothesis_and_insertions():
     assert corpus_metrics([('un','un deux trois')])['wer']==2
     assert corpus_metrics([])['wer'] is None
 
-@pytest.mark.parametrize('ref',['','   ','---'])
+@pytest.mark.parametrize('ref',['', '', '  ', '---'])
 def test_empty_reference_rejected(ref):
     with pytest.raises(ValueError):corpus_metrics([(ref,'bonjour')])
 
@@ -99,3 +99,16 @@ def test_capitalization_raw_and_normalized():
     normalized = corpus_metrics(pairs, mode="normalized")
     assert normalized["wer"] == 0.0
     assert normalized["cer"] == 0.0
+
+
+@pytest.mark.parametrize("mode", ["raw", "normalized"])
+@pytest.mark.parametrize("reference", [None, "", "   "])
+def test_missing_or_empty_reference_rejected(mode, reference):
+    with pytest.raises(ValueError):
+        corpus_metrics([(reference, "bonjour")], mode=mode)
+
+
+@pytest.mark.parametrize("mode", ["raw", "normalized"])
+def test_missing_reference_message_is_consistent(mode):
+    with pytest.raises(ValueError, match="must be a string"):
+        corpus_metrics([(None, "bonjour")], mode=mode)

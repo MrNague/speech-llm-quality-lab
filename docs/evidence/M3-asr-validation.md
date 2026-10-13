@@ -11,7 +11,10 @@ Status: Partial validation — M3 acceptance pending
 - Development dependencies: requirements-dev.lock.
 - ASR dependencies: requirements-asr.lock.
 - Dependency check: no broken requirements found.
-- Automated tests: 46 passed in 9.01 seconds.
+- Automated tests: 70 passed in 14.57 seconds (full suite).
+- WSL venv: ~/.venvs/speech-llm-quality-lab (Python 3.11.17).
+  The Windows .venv cannot be activated from WSL; the WSL venv was
+  created to run the full suite from the Ubuntu environment.
 - Code commit: 491ed4da32a9e67764e4b9b758dd1691875c9ab4.
 
 ## Model provenance

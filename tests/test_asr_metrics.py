@@ -99,3 +99,42 @@ def test_capitalization_raw_and_normalized():
     normalized = corpus_metrics(pairs, mode="normalized")
     assert normalized["wer"] == 0.0
     assert normalized["cer"] == 0.0
+
+
+@pytest.mark.parametrize(
+    "reference,prediction,expected_errors",
+    [
+        ("8", "18", 1),
+        ("18", "8", 1),
+        ("12", "21", 1),
+    ],
+)
+def test_numbers_are_distinct_units(reference, prediction, expected_errors):
+    result = corpus_metrics([(reference, prediction)])
+    assert result["words"]["errors"] == expected_errors
+    assert result["words"]["reference_units"] == 1
+
+
+def test_dropped_negation_counts_as_deletions():
+    result = corpus_metrics([("ne marche pas", "marche")])
+    assert result["words"]["deletions"] == 2
+    assert result["words"]["substitutions"] == 0
+    assert result["words"]["insertions"] == 0
+    assert result["wer"] == pytest.approx(2 / 3)
+
+
+def test_added_negation_counts_as_insertions():
+    result = corpus_metrics([("marche", "ne marche pas")])
+    assert result["words"]["insertions"] == 2
+    assert result["words"]["substitutions"] == 0
+    assert result["words"]["deletions"] == 0
+    assert result["wer"] == pytest.approx(2.0)
+
+
+def test_corpus_aggregation_is_pooled_not_averaged():
+    # Case 1: perfect. Case 2: 1 deletion over 4 reference words.
+    # Pooled: 1 error / 7 reference words. Not the average of 0 and 1/4.
+    result = corpus_metrics([("a b c", "a b c"), ("x y z w", "x y z")])
+    assert result["words"]["reference_units"] == 7
+    assert result["words"]["errors"] == 1
+    assert result["wer"] == pytest.approx(1 / 7)

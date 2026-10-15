@@ -13,3 +13,12 @@ runs/*
 !runs/README.md
 artifacts/
 models/
+# M4 - Storage Lifecycle & Diagnostics
+/runs/
+/diagnostics/
+diag_*
+imported_*
+audio_samples.zip
+*.wav
+*.mp3
+*.flac

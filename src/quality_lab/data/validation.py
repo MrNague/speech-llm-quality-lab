@@ -9,6 +9,21 @@ from importlib.resources import files
 
 from jsonschema import Draft202012Validator
 
+import os
+from urllib.parse import urlparse
+
+MAX_SIZE_BYTES = 50 * 1024 * 1024  # Limite fixée à 50 Mo
+
+def enforce_local_only(file_path: str):
+    """Bloque les chemins réseau (http, ftp, etc.) pour des raisons de sécurité."""
+    if urlparse(str(file_path)).scheme in ('http', 'https', 'ftp', 'smb'):
+        raise ValueError(f"Accès réseau interdit : {file_path}")
+
+def enforce_size_cap(file_path: str):
+    """Rejette les fichiers dépassant la limite de taille."""
+    if os.path.exists(file_path) and os.path.getsize(file_path) > MAX_SIZE_BYTES:
+        raise ValueError(f"Fichier trop volumineux. Limite : 50 Mo.")
+
 
 def safe_path(root, value):
     root = Path(root).resolve()
@@ -20,6 +35,8 @@ def safe_path(root, value):
     resolved = (root / candidate).resolve()
     if not resolved.is_relative_to(root):
         raise ValueError('Path escapes data root')
+    enforce_local_only(str(resolved))
+    enforce_size_cap(str(resolved))
     return resolved
 
 

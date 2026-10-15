@@ -97,3 +97,19 @@ def test_cli_bad_config(tmp_path,config_text):
     result=subprocess.run([sys.executable,'-m','quality_lab','validate','--config',str(config)],capture_output=True,text=True)
     assert result.returncode==2
     assert json.loads(result.stdout)['errors'][0]['code']=='configuration_or_io_error'
+    import pytest
+    from quality_lab.data.validation import enforce_local_only, enforce_size_cap
+
+    def test_rejects_network_paths():
+        with pytest.raises(ValueError, match="Accès réseau interdit"):
+            enforce_local_only("https://serveur-malveillant.com/donnees.json")
+
+    def test_rejects_oversized_files(tmp_path):
+        fichier_lourd = tmp_path / "gros_fichier.json"
+        # Simuler un fichier de 51 Mo
+        with open(fichier_lourd, "wb") as f:
+            f.seek((51 * 1024 * 1024))
+            f.write(b"\0")
+
+        with pytest.raises(ValueError, match="Fichier trop volumineux"):
+            enforce_size_cap(str(fichier_lourd))

@@ -6,6 +6,8 @@ NORMALIZATION_VERSION = "fr-v1"
 def normalize(text, mode="normalized"):
     if mode not in {"raw", "normalized"}:
         raise ValueError("Unknown text mode")
+    if not isinstance(text, str):
+        raise ValueError(f"Text must be a string, got {type(text).__name__}")
     text = unicodedata.normalize("NFC", text).strip()
     if mode == "raw":
         return text

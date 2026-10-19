@@ -1,19 +1,46 @@
 """Versioned corpus metrics. Rates are fractions; insertions can make WER > 1."""
 import unicodedata
-NORMALIZATION_VERSION = "fr-v1"
+
+NORMALIZATION_VERSION = "fr-v2"
 
 
 def normalize(text, mode="normalized"):
     if mode not in {"raw", "normalized"}:
         raise ValueError("Unknown text mode")
+
     text = unicodedata.normalize("NFC", text).strip()
     if mode == "raw":
         return text
+
     text = text.lower()
-    text = "".join(" " if c in "'’ʼ＇" or unicodedata.category(c) == "Pd" else c
-                   for c in text)
-    text = "".join(c for c in text if not unicodedata.category(c).startswith("P"))
-    return " ".join(text.split())
+    result = []
+
+    for index, char in enumerate(text):
+        previous = text[index - 1] if index > 0 else ""
+        following = text[index + 1] if index + 1 < len(text) else ""
+
+        # Preserve punctuation between digits: decimals, times and ratios.
+        numeric_separator = (
+            char in ".,:/"
+            and previous.isdecimal()
+            and following.isdecimal()
+        )
+
+        # Preserve a minus before a number, including a spaced minus.
+        numeric_minus = (
+            char in "-−"
+            and text[index + 1:].lstrip()[:1].isdecimal()
+        )
+
+        if numeric_separator or numeric_minus:
+            result.append(char)
+        elif char in "'’ʼ＇" or unicodedata.category(char) == "Pd":
+            result.append(" ")
+        elif not unicodedata.category(char).startswith("P"):
+            result.append(char)
+
+    return " ".join("".join(result).split())
+
 
 
 def edits(reference, hypothesis):

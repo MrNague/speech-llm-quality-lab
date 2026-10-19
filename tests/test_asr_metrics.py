@@ -138,3 +138,42 @@ def test_corpus_aggregation_is_pooled_not_averaged():
     assert result["words"]["reference_units"] == 7
     assert result["words"]["errors"] == 1
     assert result["wer"] == pytest.approx(1 / 7)
+
+
+@pytest.mark.parametrize(
+    "reference,prediction",
+    [
+        ("1,5", "15"),
+        ("1.5", "15"),
+        ("-5", "5"),
+    ],
+)
+def test_normalization_preserves_numeric_meaning(reference, prediction):
+    assert normalize(reference) != normalize(prediction)
+    result = corpus_metrics([(reference, prediction)])
+    assert result["wer"] > 0
+    assert result["cer"] > 0
+
+
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        ("1,5", "1,5"),
+        ("1.5", "1.5"),
+        ("-5", "-5"),
+        ("- 5", "- 5"),
+        ("−5", "−5"),
+        ("12:30", "12:30"),
+        ("1/2", "1/2"),
+        ("Bonjour !", "bonjour"),
+        ("dix-huit", "dix huit"),
+    ],
+)
+def test_fr_v2_normalization_rules(text, expected):
+    assert normalize(text) == expected
+    assert normalize(normalize(text)) == expected
+
+
+def test_metrics_record_normalization_version():
+    result = corpus_metrics([("bonjour", "bonjour")])
+    assert result["normalization_version"] == "fr-v2"

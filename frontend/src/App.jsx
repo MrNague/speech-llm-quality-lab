@@ -3,6 +3,7 @@ import { TopNav } from "./components/layout/TopNav";
 import DataQuality from "./pages/DataQuality";
 import AsrAnalysis from "./pages/AsrAnalysis";
 import LlmReview from "./pages/LlmReview"; 
+import Reports from "./pages/Report";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
         <Route path="/llm-review" element={<LlmReview />} />
         <Route path="/end-to-end" element={<div className="p-6"><h1 className="text-xl font-semibold">End-to-End</h1><p className="text-slate-500">Page in development</p></div>} />
         <Route path="/regression" element={<div className="p-6"><h1 className="text-xl font-semibold">Regression</h1><p className="text-slate-500">Page in development</p></div>} />
-        <Route path="/reports" element={<div className="p-6"><h1 className="text-xl font-semibold">Reports</h1><p className="text-slate-500">Page in development</p></div>} />
+        <Route path="/reports" element={<Reports/>} />
         <Route path="/configuration" element={<div className="p-6"><h1 className="text-xl font-semibold">Configuration</h1><p className="text-slate-500">Page in development</p></div>} />
       </Routes>
     </BrowserRouter>

@@ -11,6 +11,9 @@ dependencies = ["jsonschema==4.23.0"]
 
 [project.optional-dependencies]
 dev = ["pytest==8.3.5"]
+fastapi = "^0.115"
+uvicorn = {extras = ["standard"], version = "^0.32"}
+python-multipart = "^0.0.12"  
 
 [tool.setuptools.packages.find]
 where = ["src"]
